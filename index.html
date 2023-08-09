@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Languages Testing Matrix for Supported Locales</title>
+	<link rel="icon" type="image/x-icon" href="/images/i18.jpg">
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -38,40 +39,8 @@
       html {
           scroll-behavior: smooth;
       }
-      main > nav {
-          position: sticky;
-          top: 1rem;
-          align-self: start;
-          font-size: 15.2px;
-      }
-      .section-nav li.active > a {
-          color: #333;
-          font-weight: 500;
-      }
-      .section-nav {
-          padding-left: 0;
-          border-left: 1px solid #efefef;
-          position: sticky;
-          top: 1rem;
-          align-self: start;
-          font-size: 10.2px;
-          height: 700px;
-          overflow-y: auto;
-      }
-      .section-nav a {
-          text-decoration: none;
-          display: block;
-          padding: 0.125rem 0;
-          color: rgb(177, 176, 176);
-          transition: all 50ms ease-in-out;
-      }
-      .section-nav a:hover,
-      .section-nav a:focus {
-          color: #666;
-      }
-      * {
-          box-sizing: border-box;
-      }
+      
+      
       html,
       body {
           background: #fff;
@@ -79,21 +48,10 @@
       body {
           font-family: font-family: 'Avenir Next', Avenir Next;
       }
-      nav ol {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-      }
-      nav ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-      }
-      li {
-          margin-left: 1rem;
-      }
+      
       h1 {
           font-weight: 300;
+		  color: #426ccf;
       }
       main {
           display: grid;
@@ -102,40 +60,32 @@
           width: 95%;
           margin: 0 auto;
       }
-      section {
-          padding-bottom: 0.5rem;
-      }
-      h3 {
-          color: #8a8883;
-      }
-      h4 {
-        color: #50535A;
-        font-size: 1.2rem;
-        padding-top: 1.2rem;
-      }
+      
       b {
           color: cadetblue;
       }
 	  .release {
 			color: lightblue;
 			background-color: darkblue;
-			border-top: 2px red solid;
+			
 			}
+	.rls {
+			border-top: 5px darkblue solid;
+	}
 	.locales {
 			color: black;
 			font-style: italic;
 			background-color: lightgray;
+			font-size: 0.8em;
 	}
-      figure, figcaption {
-          text-align: center;
-      }
+      
       table, th, td {
 
           margin-left: auto;
           margin-right: auto;
           border: 1px solid #ddd;
-          padding: 5px;
-		  backgr ound-color: lightblue;
+          padding: 10px;
+		  
       }
       table {
         width: 100%;
@@ -162,57 +112,35 @@
     </style>
   </head>
   <body>
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            const id = entry.target.getAttribute("id");
-            if (entry.intersectionRatio > 0) {
-              document
-                .querySelector(`nav li a[href="#${id}"]`)
-                .parentElement.classList.add("active");
-            } else {
-              document
-                .querySelector(`nav li a[href="#${id}"]`)
-                .parentElement.classList.remove("active");
-            }
-          });
-        });
-
-        // Track all sections that have an `id` applied
-        document.querySelectorAll("section[id]").forEach((section) => {
-          observer.observe(section);
-        });
-      });
-    </script>
+    
     <div class="Content">
       <main>
           <div class="main">
 
-              <h1 style="color: #426ccf;">Languages Testing Matrix for Supported Locales</h1>
-              <section id='introd'>
-                  <h2></h2>
+              <h1>Languages Testing Matrix for Supported Locales</h1>
+              
+                  
                   <table>
                     <tr>
                         <th>Release</th>
                         <th>Environment</th>
-                        <th>Top 10</th>
+                        <th>Top-10</th>
 						<th>RTL - 1 per release</th>
 						<th>CJK - 1 per release</th>
 						<th>Non-Latin alphabet - 1 per release</th>
-						<th>Others - postrelease</th>
-						<th>Locales: test only <b>new</b> UI with number/date/time formats - devext or qaext</th>
+						<th>Others</th>
+						<th class="locales">Only <b>new</b> UI that has <b>number/date/time</b>, should be additionally tested with the following locales</th>
 
                     </tr>
-                    <tr class="release">>
-                        <td>2023.r03</td>
+                    <tr class="rls">
+                        <td class="release">2023.r03</td>
                         <td>devext</td>
                         <td>es-es</td>
-						<td>AR</td>
-						<td>ZH-TW</td>
+						<td>ar</td>
+						<td>zh-TW</td>
 						<td></td>
 						<td></td>
-						<td class="locales">English Canada<br>German Austria<br>French Switzerland<br>Portuguese Brazil</td>
+						<td class="locales">en-CA<br>de-AT<br>fr-CH<br>pt-BR</td>
  
                       </tr>
 					  <tr>>
@@ -229,44 +157,44 @@
 					  <tr>>
                         <td></td>
                         <td>Post release</td>
-                        <td>zh-cn<br>pt-pt<br>cs<br>nl<br>de-de</td>
+                        <td>zh-CN<br>pt-PT<br>cs<br>nl<br>de-DE</td>
 						<td></td>
 						<td></td>
 						<td>el</td>
-						<td>Indonesian<br>Lithuanian<br>Latvian<br>Romanian<br>Serbian<br>Slovenian<br>Slovak</td>
+						<td>id<br>lt<br>lv<br>ro<br>sr<br>sl<br>sk</td>
 						<td></td>
  
                       </tr>
-					                      <tr class="release">>
-                        <td>2024.r01</td>
+					  <tr class="rls">
+                        <td class="release">2024.r01</td>
                         <td>devext</td>
-                        <td>fr-fr</td>
-						<td>HE</td>
-						<td>ZH-CN</td>
+                        <td>fr-FR</td>
+						<td>he</td>
+						<td>zh-CN</td>
 						<td></td>
 						<td></td>
-						<td class="locales">English Great Britain<br>Italian Switzerland<br>Chinese Traditional Hong Kong</td>
+						<td class="locales">en-GB<br>it-CH<br>zh-HK</td>
  
                       </tr>
 					  <tr>>
                         <td></td>
                         <td>QAext</td>
-                        <td>it-it<br>zh-cn<br>pt-pt</td>
+                        <td>it-it<br>zh-CN<br>pt-PT</td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td>Swedish<br>Turkish<br>Croatian<br>Vietnamese<br>Polish<br>Norwegian</td>
+						<td></td>
 						<td class="locales"></td>
  
                       </tr>
 					  <tr>>
                         <td></td>
                         <td>Post release</td>
-                        <td>zh-cn<br>pt-pt<br>cs<br>nl<br>de-de</td>
+                        <td>ru<br>cs<br>nl<br>de-DE<br>es-ES<br>ja</td>
 						<td></td>
 						<td></td>
 						<td>th</td>
-						<td>Indonesian<br>Lithuanian<br>Latvian<br>Romanian<br>Serbian<br>Slovenian<br>Slovak</td>
+						<td>sv<br>tr<br>hr<br>vi<br>pl<br>nb</td>
 						<td></td>
  
                       </tr>
